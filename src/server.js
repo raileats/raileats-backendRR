@@ -22,4 +22,5 @@ app.get('/api/restaurants/station/:station', (req,res)=>{ const s=req.params.sta
 app.get('/api/search/train/:trainNo', (req,res)=>{ const station = train.includes('123') ? 'NDLS' : 'BCT'; const list = data.restaurants.filter(r=>r.station===station); res.json({ok:true,train:req.params.trainNo,station,restaurants:list}); });
 app.post('/api/orders', auth, (req,res)=>{ const {itemId,restaurantId,amount}=req.body; const order={id:'o'+(data.orders.length+1),userId:req.user.id,itemId,restaurantId,amount,date:new Date().toISOString()}; data.orders.push(order); req.user.orders.push(order); res.json({ok:true,order}); });
 app.get('/api/orders', auth, (req,res)=> res.json({ok:true,orders: data.orders.filter(o=>o.userId===req.user.id)}));
-const port = process.env.PORT || 4000; app.listen(port, ()=> console.log('backend run on', port));
+const port = process.env.PORT || 4000;
+app.listen(port, () => console.log('backend run on', port));
