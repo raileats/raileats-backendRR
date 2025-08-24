@@ -1,0 +1,1 @@
+module.exports = { users: [], orders: [], restaurants: [ { id: 'r1', name: 'Station Thali', station: 'NDLS', items:[{id:'i1',name:'Veg Thali',price:120}] } ] };
