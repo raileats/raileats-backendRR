@@ -1,0 +1,149 @@
+{
+  "info": {
+    "name": "Raileats Backend",
+    "_postman_id": "raileats-backend-001",
+    "description": "Complete API collection for Raileats backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/health",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>", "up", "railway", "app"],
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Send OTP",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Richa\",\n  \"phone\": \"9876543210\"\n}"
+        },
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/auth/send-otp",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>", "up", "railway", "app"],
+          "path": ["api","auth","send-otp"]
+        }
+      }
+    },
+    {
+      "name": "Verify OTP",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type","value":"application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Richa\",\n  \"phone\": \"9876543210\",\n  \"otp\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/auth/verify-otp",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>", "up", "railway", "app"],
+          "path": ["api","auth","verify-otp"]
+        }
+      }
+    },
+    {
+      "name": "Get User Profile",
+      "request": {
+        "method": "GET",
+        "header": [{"key":"Authorization","value":"Bearer <JWT_TOKEN>"}],
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/user/profile",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>","up","railway","app"],
+          "path": ["api","user","profile"]
+        }
+      }
+    },
+    {
+      "name": "Wallet Topup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key":"Authorization","value":"Bearer <JWT_TOKEN>"},
+          {"key":"Content-Type","value":"application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 100\n}"
+        },
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/user/wallet/topup",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>","up","railway","app"],
+          "path": ["api","user","wallet","topup"]
+        }
+      }
+    },
+    {
+      "name": "Restaurants by Station",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/restaurants/station/NDLS",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>","up","railway","app"],
+          "path": ["api","restaurants","station","NDLS"]
+        }
+      }
+    },
+    {
+      "name": "Search by Train",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/search/train/12345",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>","up","railway","app"],
+          "path": ["api","search","train","12345"]
+        }
+      }
+    },
+    {
+      "name": "Place Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key":"Authorization","value":"Bearer <JWT_TOKEN>"},
+          {"key":"Content-Type","value":"application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"itemId\":\"i1\",\n  \"restaurantId\":\"r1\",\n  \"amount\":250\n}"
+        },
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/orders",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>","up","railway","app"],
+          "path": ["api","orders"]
+        }
+      }
+    },
+    {
+      "name": "Get User Orders",
+      "request": {
+        "method": "GET",
+        "header": [{"key":"Authorization","value":"Bearer <JWT_TOKEN>"}],
+        "url": {
+          "raw": "https://<RAILWAY_URL>.up.railway.app/api/orders",
+          "protocol": "https",
+          "host": ["<RAILWAY_URL>","up","railway","app"],
+          "path": ["api","orders"]
+        }
+      }
+    }
+  ]
+}
